@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.scss';
+import BeersContainer from './containers/BeersContainer/BeersContainer';
 
 function App() {
   const [beers, setBeers] = useState();
@@ -10,15 +11,12 @@ function App() {
     const data = await res.json();
     setBeers(data)
   }
-  
-  
+
+  const beerArray = getBeers();
 
   return (
     <div className="App">
-      <header className="App-header">
-        { }
-    
-      </header>
+      <BeersContainer beers = {beers}/>
     </div>
   );
 }
