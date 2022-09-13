@@ -1,23 +1,45 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import './App.scss';
 import BeersContainer from './containers/BeersContainer/BeersContainer';
+
 
 function App() {
   const [beers, setBeers] = useState();
 
-  const getBeers = async () => {
+  const fetchBeers = async () => {
     const url = "https://api.punkapi.com/v2/beers";
     const res = await fetch(url);
     const data = await res.json();
-    setBeers(data)
+    setBeers(data);
   }
 
-  const beerArray = getBeers();
+  useEffect(() => {
+    fetchBeers();
+  }, [])
 
   return (
-    <div className="App">
-      <BeersContainer beers = {beers}/>
-    </div>
+    <Router>
+      <div className="App">
+      
+
+      <Routes>
+          <Route>
+
+          </Route>
+          <Route>
+
+          </Route>
+
+
+      </Routes>
+        
+
+
+        <BeersContainer  beers = {beers}/>
+      </div>
+
+    </Router>
   );
 }
 
