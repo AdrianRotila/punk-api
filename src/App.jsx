@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import './App.scss';
 import BeersContainer from './containers/BeersContainer/BeersContainer';
+import Nav from "./components/Nav/Nav";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-      
+      <Nav />
 
       <Routes>
           <Route>
