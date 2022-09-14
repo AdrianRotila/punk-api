@@ -1,13 +1,31 @@
 import React from 'react'
 import BeerCard from '../../components/BeerCard/BeerCard';
 import "./BeersContainer.scss"
+import { useState, useEffect } from 'react';
 
-const BeersContainer = (props) => {
-    const {beers} = props;
+const BeersContainer = ({searchedTerm}) => {
+    const [beers, setBeers] = useState([]);
 
-    return (
-        <div className='beer-container'>
-            {beers?.map((beer) => (
+    const fetchBeers = async () => {
+      const url = "https://api.punkapi.com/v2/beers";
+      const res = await fetch(url);
+      const data = await res.json();
+      setBeers(data);
+    }
+  
+    useEffect(() => {
+      fetchBeers();
+    }, [])
+    
+    const search = (beers, searchedTerm) => {
+        return beers.filter((beer) => beer.name.toLowerCase().includes(searchedTerm.toLowerCase()))
+    }
+
+
+
+    const beersToJSX = (beers) => {
+        return search(beers, searchedTerm).map((beer) => {
+            return (
                 <BeerCard
                     key={beer.id}
                     image = {beer.image_url}
@@ -16,8 +34,12 @@ const BeersContainer = (props) => {
                     tagline = {beer.tagLine} 
                     abv = {beer.abv}
                 />
-            ))}
-        </div>
+            )
+        })
+    }
+
+    return (
+        <div className='beer-container'>{beersToJSX(beers)}</div>
     )
 }
 

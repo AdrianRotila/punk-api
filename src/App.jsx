@@ -1,30 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.scss';
 import BeersContainer from './containers/BeersContainer/BeersContainer';
 import Nav from "./components/Nav/Nav";
-
+import { useState } from "react";
 
 function App() {
-  const [beers, setBeers] = useState();
-
-  const fetchBeers = async () => {
-    const url = "https://api.punkapi.com/v2/beers";
-    const res = await fetch(url);
-    const data = await res.json();
-    setBeers(data);
+  const [searchedTerm, setSearchedTerm] = useState("");
+ 
+  const getSearchInput = (event) => {
+    setSearchedTerm(event.target.value);
+    
   }
 
-  useEffect(() => {
-    fetchBeers();
-  }, [])
-
   return (
-    <Router>
+    // <Router>
       <div className="App">
-      <Nav />
+      <Nav getSearchInput={getSearchInput}/>
 
-      <Routes>
+      {/* <Routes>
           <Route>
 
           </Route>
@@ -33,14 +26,12 @@ function App() {
           </Route>
 
 
-      </Routes>
+      </Routes> */}
         
-
-
-        <BeersContainer  beers = {beers}/>
+        <BeersContainer searchedTerm = {searchedTerm}/>
       </div>
 
-    </Router>
+    // </Router>
   );
 }
 
