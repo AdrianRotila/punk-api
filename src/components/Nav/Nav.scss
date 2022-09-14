@@ -4,8 +4,9 @@
     min-height: 5rem;
     height: 100%;
     position: sticky;
+    z-index: 2;
     top: 0;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     background-color:  #e0e0e0;
     display: flex;
     justify-content: space-between;
@@ -24,19 +25,27 @@
         }
     }
     
-    .nav-right__menu {
-        max-width: 7rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .nav-right__menu > img{
-        height: 50px;
-        width: 50px;
-        cursor: pointer; 
-    }
-
-    .nav-right__search {
+    .nav-right {
         display: none;
     }
+
 }
+
+@media screen and (max-width: 992px) {
+    .nav {
+        .nav-right {
+            display: flex;
+            max-width: 7rem;
+            width: 100%;
+            justify-content: center;
+
+            &__icon {
+                
+            height: 60px;
+            width: 50px;
+            cursor: pointer; 
+            }
+        }
+    }   
+ }
+

@@ -6,29 +6,37 @@ import { useState } from "react";
 
 function App() {
   const [searchedTerm, setSearchedTerm] = useState("");
+  const [acidicBeers, setAcidicBeers] = useState(false);
  
   const getSearchInput = (event) => {
     setSearchedTerm(event.target.value);
-    
+  }
+
+  const getAcidicBeers = () => {
+    setAcidicBeers(!acidicBeers);
   }
 
   return (
     // <Router>
       <div className="App">
-      <Nav getSearchInput={getSearchInput}/>
+      <Nav getSearchInput={getSearchInput} 
+        getAcidicBeers = {getAcidicBeers} 
+        // getClassicRange = {getClassicRange} 
+        // getHighABV = {getHighABV}
+        />
 
-      {/* <Routes>
-          <Route>
+      {/* // /* <Routes>
+      //     <Route>
 
-          </Route>
-          <Route>
+      //     </Route>
+      //     <Route>
 
-          </Route>
+      //     </Route>
 
 
-      </Routes> */}
+      // </Routes> */ }
         
-        <BeersContainer searchedTerm = {searchedTerm}/>
+        <BeersContainer searchedTerm = {searchedTerm} acidicBeers = {acidicBeers}/>
       </div>
 
     // </Router>
