@@ -3,7 +3,7 @@ import "./BeerCard.scss"
 import cap from '../../assets/images/bottle-cap.png'
 
 const BeerCard = (props) => {
-    const {image, name, tagline, description, abv, foodPairing} = props
+    const {image, name, description, abv, foodPairing, ibu} = props
 
     return (
         <div className="beer-card">
@@ -11,11 +11,10 @@ const BeerCard = (props) => {
             <img className='beer-card__cap' src={cap}  alt="cap"/>
             <p className='beer-card__abv'>{abv}</p>
             <div className="beer-card__content">
-                <h2 className="beer-card__heading">{name}</h2>
-                <h3 className='beer-card__tagline'>{tagline}</h3>
+                <h2 className="beer-card__heading">{name} <p>IBU {ibu}</p> </h2>
                 <p className='beer-card__description'>{description}</p>
                 <div className='beer-card__details'>
-                    <p className='beer-card__match'><p>Food Match: </p> {foodPairing.join(", ")}</p>
+                    <p className='beer-card__match'><span>Food Match: </span>{foodPairing.join(", ")}</p>
                 </div>
             </div>
       </div>

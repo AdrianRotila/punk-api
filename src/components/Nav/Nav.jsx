@@ -6,7 +6,7 @@ import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
 
 const Nav = (props) => {
-    const {getSearchInput, getAcidicBeers, getClassicRange, getHighABV} = props;
+    const {getSearchInput, getBitterBeers, getClassicRange, getHighABV} = props;
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
@@ -15,28 +15,25 @@ const Nav = (props) => {
 
     return (
         <div className='nav'>
-            <div className = 'nav-left'>
-                <img className = "nav-left__icon" src = {icon} alt="icon"/>
-            </div>
-
-            {showMenu && 
-                <NavMenu 
+            {showMenu ? 
+                (<NavMenu 
                     toggleMenu = {toggleMenu} 
-                    getAcidicBeers = {getAcidicBeers}
+                    getBitterBeers = {getBitterBeers}
                     getClassicRange = {getClassicRange}
                     getHighABV = {getHighABV}
-                />}
+                />) :
 
             
-
-            {!showMenu && 
-            <>
+            
+            (<><div className = 'nav-left'>
+                <img className = "nav-left__icon" src = {icon} alt="icon"/>
+            </div>
                 <SearchBox getSearchInput={getSearchInput}/>
                 <div className='nav-right'>
                     <img className = "nav-right__icon" src={menuIcon} alt="menu-icon" onClick={toggleMenu}/>
                 </div>
-            </>
-            }
+            </>)}
+            
 
             
         </div>

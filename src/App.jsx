@@ -6,23 +6,34 @@ import { useState } from "react";
 
 function App() {
   const [searchedTerm, setSearchedTerm] = useState("");
-  const [acidicBeers, setAcidicBeers] = useState(false);
+  const [bitterBeers, setBitterBeers] = useState(false);
+  const [classicRange, setClassicRange] = useState(false);
+  const [highABV, setHighABV] = useState(false);
+
  
   const getSearchInput = (event) => {
     setSearchedTerm(event.target.value);
   }
 
-  const getAcidicBeers = () => {
-    setAcidicBeers(!acidicBeers);
+  const getBitterBeers = () => {
+    setBitterBeers(!bitterBeers);
+  }
+
+  const getHighABV = () => {
+    setHighABV(!highABV);
+  }
+
+  const getClassicRange = () => {
+    setClassicRange(!classicRange);
   }
 
   return (
     // <Router>
       <div className="App">
       <Nav getSearchInput={getSearchInput} 
-        getAcidicBeers = {getAcidicBeers} 
-        // getClassicRange = {getClassicRange} 
-        // getHighABV = {getHighABV}
+        getBitterBeers = {getBitterBeers} 
+        getClassicRange = {getClassicRange} 
+        getHighABV = {getHighABV}
         />
 
       {/* // /* <Routes>
@@ -36,7 +47,12 @@ function App() {
 
       // </Routes> */ }
         
-        <BeersContainer searchedTerm = {searchedTerm} acidicBeers = {acidicBeers}/>
+        <BeersContainer 
+          searchedTerm = {searchedTerm} 
+          bitterBeers = {bitterBeers}
+          classicRange = {classicRange}
+          highABV = {highABV}
+        />
       </div>
 
     // </Router>

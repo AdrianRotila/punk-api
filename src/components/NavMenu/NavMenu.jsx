@@ -3,7 +3,7 @@ import "./NavMenu.scss";
 
 
 const NavMenu = (props) => {
-  const {toggleMenu, getAcidicBeers, getClassicRange, getHighABV } = props;
+  const {toggleMenu, getBitterBeers, getClassicRange, getHighABV } = props;
 
   return (
     <div className="nav-menu">
@@ -16,22 +16,22 @@ const NavMenu = (props) => {
         />
 
         <div className="nav-menu__item" >
-            <label class="nav-menu__form">
+            <label className="nav-menu__form">
                 <input type="checkbox" name="checkbox" onClick={getHighABV}/>
-                High ABV ( > 6.0% )
+                High ABV > 6.0% 
             </label>
         </div>
         <div className="nav-menu__item" >
-            <label class="nav-menu__form">
+            <label className="nav-menu__form">
                 <input type="checkbox" name="checkbox" onClick={getClassicRange}/>
                 Classic Range
             </label>
         </div>
         <div className="nav-menu__item" >
-        <label class="nav-menu__form">
-                <input type="checkbox" name="checkbox" onClick = {getAcidicBeers}/>
-                Acidic
-            </label>
+        <label className="nav-menu__form">
+                <input type="checkbox" name="checkbox" onClick = {getBitterBeers}/>
+                Bitter Beers
+        </label>
         </div>
       </div>
     </div>
