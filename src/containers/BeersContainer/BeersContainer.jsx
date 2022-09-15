@@ -3,19 +3,23 @@ import BeerCard from '../../components/BeerCard/BeerCard';
 import "./BeersContainer.scss"
 import { useState, useEffect } from 'react';
 
-const BeersContainer = ({searchedTerm, bitterBeers, getClassicRange, getHighABV}) => {
+const BeersContainer = ({searchedTerm, bitterBeers, classicRange, highABV}) => {
     const [beers, setBeers] = useState([]);
 
     const fetchBeers = async (bitterBeers) => {
-        const url = "https://api.punkapi.com/v2/beers";
-        let urlWithParams = url;
         
-        if(bitterBeers === true) urlWithParams += "?ibu_gt=50&ibu_lt=70"
+        let urlWithParams = [];
+
+        for (let index = 1; index < 6; index++) {
+            let url = `https://api.punkapi.com/v2/beers?page=${index}&per_page=80`;
+            let res = await fetch(url);
+            let data = await res.json();
+            Array.prototype.push.apply(urlWithParams, data)
+        }
         
+        setBeers(urlWithParams)
         
-        const res = await fetch(urlWithParams);
-        const data = await res.json();
-        setBeers(data);
+       
     }
 
     useEffect(() => {
@@ -30,8 +34,6 @@ const BeersContainer = ({searchedTerm, bitterBeers, getClassicRange, getHighABV}
             beer.food_pairing.join(", ").toLowerCase().includes(searchedTerm.toLowerCase())
         } )
     }
-
-   
 
     const beersToJSX = (beers) => {
         return search(beers, searchedTerm).map((beer) => {
