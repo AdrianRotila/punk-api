@@ -19,7 +19,7 @@ function App() {
     if(bitterBeers === false) {
       setBitterBeers(!bitterBeers);
       setHighABV(false);
-      setClassicRange(!false);
+      setClassicRange(false);
       setAscAVB(false)
       setDescAVB(false)
       setAscIBU(false)
