@@ -8,6 +8,10 @@ const BeersContainer = (props) => {
         ascAVB, descAVB, ascIBU, descIBU} = props;
     const [beers, setBeers] = useState([]);
 
+    useEffect(() => {
+        fetchBeers(bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU);
+      }, [bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU])
+
     const fetchBeers = async (bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU) => {
         let allBeers = [];
 
@@ -31,10 +35,6 @@ const BeersContainer = (props) => {
         if(ascIBU === true) {setBeers(allBeers.sort((a, b) => a.ibu - b.ibu))}
         if(descIBU === true) {setBeers(allBeers.sort((a, b) => b.ibu - a.ibu))}
     }
-
-    useEffect(() => {
-      fetchBeers(bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU);
-    }, [bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU])
     
     const search = (beers, searchedTerm) => {
         return beers.filter((beer) => {

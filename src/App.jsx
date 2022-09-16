@@ -56,7 +56,7 @@ function App() {
       setDescIBU(false)
       setClassicRange(false)
       setHighABV(false)
-      getBitterBeers(false)
+      setBitterBeers(false)
     }
   }
   const sortDescABV = () => {
