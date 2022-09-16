@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.15fdbfc5.css",
-    "main.js": "/static/js/main.0bae4c89.js",
-    "static/js/787.ae7c3095.chunk.js": "/static/js/787.ae7c3095.chunk.js",
-    "static/media/icon.png": "/static/media/icon.aba48465ea5497087156.png",
-    "static/media/bottle-cap.png": "/static/media/bottle-cap.a1a5682b22bb43b5eb7b.png",
-    "static/media/search.png": "/static/media/search.f2d70afd1ebdca42594e.png",
-    "index.html": "/index.html",
-    "main.15fdbfc5.css.map": "/static/css/main.15fdbfc5.css.map",
-    "main.0bae4c89.js.map": "/static/js/main.0bae4c89.js.map",
-    "787.ae7c3095.chunk.js.map": "/static/js/787.ae7c3095.chunk.js.map"
+    "main.css": "/punk-api/static/css/main.15fdbfc5.css",
+    "main.js": "/punk-api/static/js/main.2fcedf6f.js",
+    "static/js/787.ae7c3095.chunk.js": "/punk-api/static/js/787.ae7c3095.chunk.js",
+    "static/media/icon.png": "/punk-api/static/media/icon.aba48465ea5497087156.png",
+    "static/media/bottle-cap.png": "/punk-api/static/media/bottle-cap.a1a5682b22bb43b5eb7b.png",
+    "static/media/search.png": "/punk-api/static/media/search.f2d70afd1ebdca42594e.png",
+    "index.html": "/punk-api/index.html",
+    "main.15fdbfc5.css.map": "/punk-api/static/css/main.15fdbfc5.css.map",
+    "main.2fcedf6f.js.map": "/punk-api/static/js/main.2fcedf6f.js.map",
+    "787.ae7c3095.chunk.js.map": "/punk-api/static/js/787.ae7c3095.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.15fdbfc5.css",
-    "static/js/main.0bae4c89.js"
+    "static/js/main.2fcedf6f.js"
   ]
 }
