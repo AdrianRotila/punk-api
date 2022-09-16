@@ -1,13 +1,14 @@
 import React from 'react'
 import "./BeerCard.scss"
 import cap from '../../assets/images/bottle-cap.png'
+import { Link } from 'react-router-dom'
 
 const BeerCard = (props) => {
     const {image, name, description, abv, foodPairing, ibu} = props
 
     return (
         <div className="beer-card">
-            <img className="beer-card__image" src={image} alt={name} />
+            <Link to = "/beer"> <img className="beer-card__image" src={image} alt={name} /></Link>
             <img className='beer-card__cap' src={cap}  alt="cap"/>
             <p className='beer-card__abv'>{abv}</p>
             <div className="beer-card__content">

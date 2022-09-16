@@ -1,8 +1,9 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.scss';
 import BeersContainer from './containers/BeersContainer/BeersContainer';
 import Nav from "./components/Nav/Nav";
 import { useState } from "react";
+import BeerInfo from "./containers/BeerInfo/BeerInfo";
 
 function App() {
   const [searchedTerm, setSearchedTerm] = useState("");
@@ -23,29 +24,44 @@ function App() {
   const sortAscIBU = () => {setAscIBU(!ascIBU)}
   const sortDescIBU = () => {setDescIBU(!descIBU)}
 
+
   return (
-    <div className="App">
-      <Nav getSearchInput={getSearchInput} 
-        getBitterBeers = {getBitterBeers} 
-        getClassicRange = {getClassicRange} 
-        getHighABV = {getHighABV}
-        sortAscABV = {sortAscABV}
-        sortDescABV = {sortDescABV}
-        sortAscIBU = {sortAscIBU}
-        sortDescIBU = {sortDescIBU}
-      />
-        
-      <BeersContainer 
-        searchedTerm = {searchedTerm} 
-        bitterBeers = {bitterBeers}
-        classicRange = {classicRange}
-        highABV = {highABV}
-        ascAVB = {ascAVB}
-        descAVB = {descAVB}
-        ascIBU = {ascIBU}
-        descIBU = {descIBU}
-      />
-    </div>
+    <Router>
+      <div className="App">
+        <Nav getSearchInput={getSearchInput} 
+          getBitterBeers = {getBitterBeers} 
+          getClassicRange = {getClassicRange} 
+          getHighABV = {getHighABV}
+          sortAscABV = {sortAscABV}
+          sortDescABV = {sortDescABV}
+          sortAscIBU = {sortAscIBU}
+          sortDescIBU = {sortDescIBU}
+        />
+        <Routes>
+          <Route 
+            exact path = "/" 
+            element = {
+              <BeersContainer 
+                searchedTerm = {searchedTerm} 
+                bitterBeers = {bitterBeers}
+                classicRange = {classicRange}
+                highABV = {highABV}
+                ascAVB = {ascAVB}
+                descAVB = {descAVB}
+                ascIBU = {ascIBU}
+                descIBU = {descIBU}
+              />
+            }>
+          </Route>
+          <Route
+            path= "/beer/:beerId" element = {
+            <BeerInfo />
+          }>
+
+        </Route>
+        </Routes>
+     </div>
+    </Router>
   );
 }
 

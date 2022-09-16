@@ -5,13 +5,12 @@ import { useState, useEffect } from 'react';
 
 const BeersContainer = (props) => {
     const {searchedTerm, bitterBeers, classicRange, highABV,
-        ascAVB, descAVB, ascIBU, descIBU} = props;
+            ascAVB, descAVB, ascIBU, descIBU} = props;
     const [beers, setBeers] = useState([]);
 
     const fetchBeers = async (bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU) => {
         
         let allBeers = [];
-
         for (let index = 1; index < 6; index++) {
             let url = `https://api.punkapi.com/v2/beers?page=${index}&per_page=80`;
             let res = await fetch(url);
@@ -32,7 +31,6 @@ const BeersContainer = (props) => {
         if(descAVB === true) {setBeers(allBeers.sort((a, b) => b.abv - a.abv))}
         if(ascIBU === true) {setBeers(allBeers.sort((a, b) => a.ibu - b.ibu))}
         if(descIBU === true) {setBeers(allBeers.sort((a, b) => b.ibu - a.ibu))}
-
     }
 
     useEffect(() => {
