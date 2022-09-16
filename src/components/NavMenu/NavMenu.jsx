@@ -1,7 +1,6 @@
 import blackCross from "../../assets/images/black-cross.png";
 import "./NavMenu.scss";
 
-
 const NavMenu = (props) => {
   const {toggleMenu, getBitterBeers, getClassicRange, getHighABV, 
         sortAscABV, sortDescABV,  sortAscIBU, sortDescIBU} = props;
@@ -9,7 +8,6 @@ const NavMenu = (props) => {
   return (
     <div className="nav-menu">
         <div className="nav-menu__content">
-            
             <label className="nav-menu__form--show">
                 <input type="radio" name="checkbox" onClick={sortAscABV}/>
                 Lowest ABV
@@ -39,7 +37,6 @@ const NavMenu = (props) => {
                     <input type="radio" name="checkbox" onClick = {getBitterBeers}/>
                     Bitter
             </label>
-
             <img
                 src={blackCross}
                 alt="Close menu"

@@ -27,20 +27,16 @@ const Nav = (props) => {
                     sortAscIBU = {sortAscIBU}
                     sortDescIBU = {sortDescIBU}
                 />) :
-
-            
-            
-            (<><div className = 'nav-left'>
-                <img className = "nav-left__icon" src = {icon} alt="icon"/>
-            </div>
-                <SearchBox getSearchInput={getSearchInput}/>
-                <div className='nav-right'>
-                    <img className = "nav-right__icon" src={menuIcon} alt="menu-icon" onClick={toggleMenu}/>
-                </div>
-            </>)}
-            
-
-            
+                (<>
+                    <div className = 'nav-left'>
+                        <img className = "nav-left__icon" src = {icon} alt="icon"/>
+                    </div>
+                    <SearchBox getSearchInput={getSearchInput}/>
+                    <div className='nav-right'>
+                        <img className = "nav-right__icon" src={menuIcon} alt="menu-icon" onClick={toggleMenu}/>
+                    </div>
+                </>)
+            }
         </div>
     )
 }

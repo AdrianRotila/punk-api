@@ -9,7 +9,6 @@ const BeersContainer = (props) => {
     const [beers, setBeers] = useState([]);
 
     const fetchBeers = async (bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU) => {
-        
         let allBeers = [];
 
         for (let index = 1; index < 6; index++) {
@@ -18,7 +17,6 @@ const BeersContainer = (props) => {
             let data = await res.json();
             Array.prototype.push.apply(allBeers, data)
         }
-        
         setBeers(allBeers)
 
         const abvFilter = allBeers.filter((beer) => beer.abv > 6)
@@ -32,7 +30,6 @@ const BeersContainer = (props) => {
         if(descAVB === true) {setBeers(allBeers.sort((a, b) => b.abv - a.abv))}
         if(ascIBU === true) {setBeers(allBeers.sort((a, b) => a.ibu - b.ibu))}
         if(descIBU === true) {setBeers(allBeers.sort((a, b) => b.ibu - a.ibu))}
-
     }
 
     useEffect(() => {

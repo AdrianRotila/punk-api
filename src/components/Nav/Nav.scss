@@ -12,44 +12,17 @@
     justify-content: space-between;
     align-items: center;
 
-    .nav-left {
+    .nav-left, .nav-right {
         max-width: 7rem;
         width: 100%;
-        display: none;
+        display: flex;
         justify-content: center;
 
         &__icon {
-            display: none;
+            display: flex;
             height: 50px;
             width: 50px;
             cursor: pointer;
-        }
-    }
-    
-    .nav-right {
-        display: flex;
-            max-width: 7rem;
-            width: 100%;
-            justify-content: center;
-
-            &__icon {
-            
-            height: 60px;
-            width: 50px;
-            cursor: pointer; 
-        }
-    }
-}
-
-
-@media screen and (min-width: 768px) {
-    .nav {
-        justify-content: space-between;
-        .nav-left {
-            display: flex;
-            &__icon {
-                display: flex;
-            }
         }
     }
 }

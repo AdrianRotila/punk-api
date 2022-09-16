@@ -15,13 +15,83 @@ function App() {
   const [descIBU, setDescIBU] = useState(false);
 
   const getSearchInput = (event) => {setSearchedTerm(event.target.value)}
-  const getBitterBeers = () => {setBitterBeers(!bitterBeers);}
-  const getHighABV = () => {setHighABV(!highABV);}
-  const getClassicRange = () => {setClassicRange(!classicRange);}
-  const sortAscABV = () => {setAscAVB(!ascAVB)}
-  const sortDescABV = () => {setDescAVB(!descAVB)}
-  const sortAscIBU = () => {setAscIBU(!ascIBU)}
-  const sortDescIBU = () => {setDescIBU(!descIBU)}
+  const getBitterBeers = () => {
+    if(bitterBeers === false) {
+      setBitterBeers(!bitterBeers);
+      setHighABV(false);
+      setClassicRange(!false);
+      setAscAVB(false)
+      setDescAVB(false)
+      setAscIBU(false)
+      setDescIBU(false)
+    }
+  }
+  const getHighABV = () => {
+    if(highABV === false){
+      setHighABV(!highABV);
+      setClassicRange(false);
+      setAscAVB(false)
+      setDescAVB(false)
+      setAscIBU(false)
+      setDescIBU(false)
+      setBitterBeers(false)
+    }
+  }
+  const getClassicRange = () => {
+    if(classicRange === false) { 
+      setClassicRange(!classicRange);
+      setAscAVB(false)
+      setDescAVB(false)
+      setAscIBU(false)
+      setDescIBU(false)
+      setHighABV(false)
+      setBitterBeers(false)
+    }
+  }
+  const sortAscABV = () => {
+    if(ascAVB === false) {
+      setAscAVB(!ascAVB)
+      setDescAVB(false)
+      setAscIBU(false)
+      setDescIBU(false)
+      setClassicRange(false)
+      setHighABV(false)
+      getBitterBeers(false)
+    }
+  }
+  const sortDescABV = () => {
+    if(descAVB === false) {
+      setDescAVB(!descAVB)
+      setAscAVB(false)
+      setAscIBU(false)
+      setDescIBU(false)
+      setClassicRange(false)
+      setHighABV(false)
+      setBitterBeers(false)
+    }
+  }
+  const sortAscIBU = () => {
+    if(ascIBU === false) {
+      setAscIBU(!ascIBU)
+      setDescAVB(false)
+      setAscAVB(false)
+      setDescIBU(false)
+      setClassicRange(false)
+      setHighABV(false)
+      setBitterBeers(false)
+    }
+  }
+  const sortDescIBU = () => {
+    if(descIBU === false){
+      setDescIBU(!descIBU)
+      setAscIBU(false)
+      setDescAVB(false)
+      setAscAVB(false)
+      setClassicRange(false)
+      setHighABV(false)
+      setBitterBeers(false)
+    }
+  }
 
   return (
     <div className="App">
