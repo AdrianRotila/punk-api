@@ -12,7 +12,7 @@ const BeerCard = (props) => {
             <p className='beer-card__abv'>{abv}</p>
             <div className="beer-card__content">
                 <h2 className="beer-card__heading">{name} <p>IBU {ibu}</p> </h2>
-                <p className='beer-card__description'>{description}</p>
+                <p className='beer-card__description'>{description.length > 250 ? description?.substring(0, 200) + ". . ." : description }</p>
                 <div className='beer-card__details'>
                     <p className='beer-card__match'><span>Food Match: </span>{foodPairing.join(", ")}</p>
                 </div>

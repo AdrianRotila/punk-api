@@ -3,10 +3,12 @@ import BeerCard from '../../components/BeerCard/BeerCard';
 import "./BeersContainer.scss"
 import { useState, useEffect } from 'react';
 
-const BeersContainer = ({searchedTerm, bitterBeers, classicRange, highABV}) => {
+const BeersContainer = (props) => {
+    const {searchedTerm, bitterBeers, classicRange, highABV,
+        ascAVB, descAVB, ascIBU, descIBU} = props;
     const [beers, setBeers] = useState([]);
 
-    const fetchBeers = async (bitterBeers, classicRange, highABV) => {
+    const fetchBeers = async (bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU) => {
         
         let allBeers = [];
 
@@ -18,17 +20,24 @@ const BeersContainer = ({searchedTerm, bitterBeers, classicRange, highABV}) => {
         }
         
         setBeers(allBeers)
+
+        const abvFilter = allBeers.filter((beer) => beer.abv > 6)
+        const classicFilter = allBeers.filter((beer) => parseInt(beer.first_brewed.substring(beer.first_brewed.length-4)) < 2010)
+        const bitterFilter = allBeers.filter((beer) => beer.ibu <= 70 && beer.ibu >= 50)
         
-        if(bitterBeers === true) {setBeers(allBeers.filter((beer) => beer.ibu <= 70 && beer.ibu >= 50))}
-        if(classicRange === true) {setBeers(allBeers.filter((beer) => parseInt(beer.first_brewed.substring(beer.first_brewed.length-4)) > 2010))}
-        if(highABV === true) {setBeers(allBeers.filter((beer) => beer.abv > 6))}
-        
-        
+        if(bitterBeers === true) { setBeers(bitterFilter)}
+        if(classicRange === true) { setBeers(classicFilter)}
+        if(highABV === true) { setBeers(abvFilter)}
+        if(ascAVB === true) {setBeers(allBeers.sort((a, b) => a.abv - b.abv))}
+        if(descAVB === true) {setBeers(allBeers.sort((a, b) => b.abv - a.abv))}
+        if(ascIBU === true) {setBeers(allBeers.sort((a, b) => a.ibu - b.ibu))}
+        if(descIBU === true) {setBeers(allBeers.sort((a, b) => b.ibu - a.ibu))}
+
     }
 
     useEffect(() => {
-      fetchBeers(bitterBeers, classicRange, highABV);
-    }, [bitterBeers, classicRange, highABV])
+      fetchBeers(bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU);
+    }, [bitterBeers, classicRange, highABV, ascAVB, descAVB, ascIBU, descIBU])
     
     const search = (beers, searchedTerm) => {
         return beers.filter((beer) => {
@@ -47,7 +56,7 @@ const BeersContainer = ({searchedTerm, bitterBeers, classicRange, highABV}) => {
                     key={beer.id}
                     image = {beer.image_url}
                     name = {beer.name} 
-                    description = {beer.description.length > 250 ? beer.description?.substring(0, 100) + " . . ." : beer.description } 
+                    description = {beer.description} 
                     abv = {beer.abv}
                     foodPairing = {beer.food_pairing}
                     ibu = {beer.ibu}

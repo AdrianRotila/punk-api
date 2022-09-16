@@ -9,53 +9,43 @@ function App() {
   const [bitterBeers, setBitterBeers] = useState(false);
   const [classicRange, setClassicRange] = useState(false);
   const [highABV, setHighABV] = useState(false);
+  const [ascAVB, setAscAVB] = useState(false);
+  const [descAVB, setDescAVB] = useState(false);
+  const [ascIBU, setAscIBU] = useState(false);
+  const [descIBU, setDescIBU] = useState(false);
 
- 
-  const getSearchInput = (event) => {
-    setSearchedTerm(event.target.value);
-  }
-
-  const getBitterBeers = () => {
-    setBitterBeers(!bitterBeers);
-  }
-
-  const getHighABV = () => {
-    setHighABV(!highABV);
-  }
-
-  const getClassicRange = () => {
-    setClassicRange(!classicRange);
-  }
+  const getSearchInput = (event) => {setSearchedTerm(event.target.value)}
+  const getBitterBeers = () => {setBitterBeers(!bitterBeers);}
+  const getHighABV = () => {setHighABV(!highABV);}
+  const getClassicRange = () => {setClassicRange(!classicRange);}
+  const sortAscABV = () => {setAscAVB(!ascAVB)}
+  const sortDescABV = () => {setDescAVB(!descAVB)}
+  const sortAscIBU = () => {setAscIBU(!ascIBU)}
+  const sortDescIBU = () => {setDescIBU(!descIBU)}
 
   return (
-    // <Router>
-      <div className="App">
+    <div className="App">
       <Nav getSearchInput={getSearchInput} 
         getBitterBeers = {getBitterBeers} 
         getClassicRange = {getClassicRange} 
         getHighABV = {getHighABV}
-        />
-
-      {/* // /* <Routes>
-      //     <Route>
-
-      //     </Route>
-      //     <Route>
-
-      //     </Route>
-
-
-      // </Routes> */ }
+        sortAscABV = {sortAscABV}
+        sortDescABV = {sortDescABV}
+        sortAscIBU = {sortAscIBU}
+        sortDescIBU = {sortDescIBU}
+      />
         
-        <BeersContainer 
-          searchedTerm = {searchedTerm} 
-          bitterBeers = {bitterBeers}
-          classicRange = {classicRange}
-          highABV = {highABV}
-        />
-      </div>
-
-    // </Router>
+      <BeersContainer 
+        searchedTerm = {searchedTerm} 
+        bitterBeers = {bitterBeers}
+        classicRange = {classicRange}
+        highABV = {highABV}
+        ascAVB = {ascAVB}
+        descAVB = {descAVB}
+        ascIBU = {ascIBU}
+        descIBU = {descIBU}
+      />
+    </div>
   );
 }
 

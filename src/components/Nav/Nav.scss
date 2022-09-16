@@ -15,10 +15,11 @@
     .nav-left {
         max-width: 7rem;
         width: 100%;
-        display: flex;
+        display: none;
         justify-content: center;
 
         &__icon {
+            display: none;
             height: 50px;
             width: 50px;
             cursor: pointer;
@@ -26,26 +27,30 @@
     }
     
     .nav-right {
-        display: none;
-    }
-
-}
-
-@media screen and (max-width: 992px) {
-    .nav {
-        .nav-right {
-            display: flex;
+        display: flex;
             max-width: 7rem;
             width: 100%;
             justify-content: center;
 
             &__icon {
-                
+            
             height: 60px;
             width: 50px;
             cursor: pointer; 
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .nav {
+        justify-content: space-between;
+        .nav-left {
+            display: flex;
+            &__icon {
+                display: flex;
             }
         }
-    }   
- }
+    }
+}
 

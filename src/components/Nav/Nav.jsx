@@ -6,7 +6,8 @@ import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
 
 const Nav = (props) => {
-    const {getSearchInput, getBitterBeers, getClassicRange, getHighABV} = props;
+    const {getSearchInput, getBitterBeers, getClassicRange, getHighABV, 
+            sortAscABV, sortDescABV,  sortAscIBU, sortDescIBU} = props;
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
@@ -21,6 +22,10 @@ const Nav = (props) => {
                     getBitterBeers = {getBitterBeers}
                     getClassicRange = {getClassicRange}
                     getHighABV = {getHighABV}
+                    sortAscABV = {sortAscABV}
+                    sortDescABV = {sortDescABV}
+                    sortAscIBU = {sortAscIBU}
+                    sortDescIBU = {sortDescIBU}
                 />) :
 
             
