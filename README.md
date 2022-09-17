@@ -1,4 +1,4 @@
-<h1>Punk API</h1>
+<h1 align = "center">Punk API</h1>
 <hr><p>A simple website that is listing the 325 beers selection using the Punk API in form of cards displaying the important information about each beer.
 The beers are listed on the main page and is allowing the user to search or sort the beers by name, food pairing, abv and ibu in ascending or descending order.</p><h2>Technologies Used</h2>
 <hr><ul>
@@ -37,9 +37,9 @@ The app will load on the server.
 Open http://localhost:3000 to view it in your browser.
 </ul><h2>Screenshots</h2>
 
-<h3 align="center">Desktop</h3>
+<h2 align="center">Desktop</h2>
 <p><img src="https://i2.paste.pics/36c7bafea388a56ab55baa241c422cdb.png" alt=""></p><p><img src="https://i2.paste.pics/ce3ac6dd274ea351374b193bf3f479c2.png" alt=""></p><p><img src="https://i2.paste.pics/IN1C3.png" alt=""></p>
-<h3 align="center">Mobile</h3>
+<h2 align="center">Mobile</h2>
 <p  align="center"><img src="https://i2.paste.pics/f2452a8578a1223eb04c2dd78b46c38b.png" alt=""></p>
 <h2>Usage</h2>
 <hr><p>When you go to the website all the 325 beers will be there waiting for searching/sorting.
