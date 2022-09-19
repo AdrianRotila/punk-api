@@ -51,6 +51,7 @@ const BeersContainer = (props) => {
             return (
                 <BeerCard
                     key={beer.id}
+                    id = {beer.id}
                     image = {beer.image_url}
                     name = {beer.name} 
                     description = {beer.description} 

@@ -4,6 +4,7 @@ import icon from '../../assets/images/icon.png';
 import menuIcon from '../../assets/images/menu-icon.png'
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
+import {Link} from "react-router-dom"
 
 const Nav = (props) => {
     const {getSearchInput, getBitterBeers, getClassicRange, getHighABV, 
@@ -27,10 +28,13 @@ const Nav = (props) => {
                     sortAscIBU = {sortAscIBU}
                     sortDescIBU = {sortDescIBU}
                 />) :
-                (<>
+                (<>  
                     <div className = 'nav-left'>
-                        <img className = "nav-left__icon" src = {icon} alt="icon"/>
+                        <Link to = "/">
+                            <img className = "nav-left__icon" src = {icon} alt="icon"/>
+                        </Link>
                     </div>
+                    
                     <SearchBox getSearchInput={getSearchInput}/>
                     <div className='nav-right'>
                         <img className = "nav-right__icon" src={menuIcon} alt="menu-icon" onClick={toggleMenu}/>
